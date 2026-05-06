@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Suscripción</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contenedor {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 320px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 12px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .terminos {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e7e34;
+        }
+
+        .mensaje {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <h2>Suscripción</h2>
+
+    <form id="formulario">
+        <!-- Validación de correo -->
+        <input 
+            type="email" 
+            id="correo" 
+            placeholder="Correo electrónico" 
+            required
+        >
+
+        <!-- Checkbox obligatorio -->
+        <div class="terminos">
+            <label>
+                <input type="checkbox" id="terminos" required>
+                Acepto los términos y condiciones
+            </label>
+        </div>
+
+        <button type="submit">Suscribirse</button>
+    </form>
+
+    <div id="mensaje" class="mensaje"></div>
+</div>
+
+<script>
+    const form = document.getElementById("formulario");
+    const mensaje = document.getElementById("mensaje");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        if (form.checkValidity()) {
+            mensaje.textContent = "¡Suscripción exitosa!";
+            form.reset();
+        } else {
+            mensaje.textContent = "Por favor completa correctamente el formulario.";
+        }
+    });
+</script>
+
+</body>
+  </html>
